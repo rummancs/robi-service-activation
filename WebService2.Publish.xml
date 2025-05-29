@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\my files\mypublish22112012" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="robi_subscriber" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="False" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/WebService2.dll" publishTime="11/22/2012 16:24:01" />
+    <file relUrl="Service1.asmx" publishTime="10/16/2012 15:44:33" />
+    <file relUrl="Web.config" publishTime="11/22/2012 16:06:08" />
+  </publishProfile>
+</publishData>
