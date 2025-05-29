@@ -14,7 +14,7 @@ namespace WebService2
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line.
     // [System.Web.Script.Services.ScriptService]
     public class Service1 : System.Web.Services.WebService
     {
@@ -25,15 +25,15 @@ namespace WebService2
         //    return "Hello World"+sMg;
         //}
         [WebMethod]
-        private void ConnectToDb() //not used 
+        private void ConnectToDb() //not used
         {
-               
+
                 SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
-                scsb.DataSource = "192.168.119.10";
+                scsb.DataSource = "x.x.x.x";
                 scsb.InitialCatalog = "info";
                 scsb.IntegratedSecurity = false; // set to true is using Windows Authentication
                 scsb.UserID = "appresource";
-                scsb.Password = "miaki@1_8";
+                scsb.Password = "xxxx";
                 SqlConnection conn = new SqlConnection(scsb.ConnectionString);
                 try
                 {
@@ -47,7 +47,7 @@ namespace WebService2
                 finally
                 {
                     conn.Dispose();
-                }   
+                }
 
         }
 
@@ -87,7 +87,7 @@ namespace WebService2
                 }
             //------------------end
             //connetionString = "Data Source=SHARIF-PC;Initial Catalog=airtel;User ID=sa;Password=btraccl12345678";
-            connetionString = "Data Source=210.4.72.51;Initial Catalog=info;User ID=appresource;Password=miaki@1_8_8"; //192.168.119.10
+            connetionString = "Data Source=XXXXXXXXX;Initial Catalog=info;User ID=appresource;Password=XXXXXXX"; //x.x.x.x
             sql = "SELECT "+returnquery+
             " FROM [info].[dbo].[tbl_subscription_general_user]";
 
@@ -171,7 +171,7 @@ namespace WebService2
             }
             return returnvalue;
         }
-        
+
 
         [WebMethod]
         private string InsertToRecord(string msisdn, string serviceshortcode, string keyword, string methodType)
@@ -182,7 +182,7 @@ namespace WebService2
             string qry = null;
             String returnvalue = "";
             //connetionString = "Data Source=SHARIF-PC;Initial Catalog=airtel;User ID=sa;Password=btraccl12345678";
-            connetionString = "Data Source=192.168.119.10;Initial Catalog=info;User ID=appresource;Password=miaki@1_8";
+            connetionString = "Data Source=x.x.x.x;Initial Catalog=info;User ID=appresource;Password=xxxx";
             // update_time,+ DateTime.Now.ToString("YY-MM-DD HH:mm:ss")
             qry = "insert into tbl_subscription_general_user(telco_inShortCode,telco_inMobileNo,msg_keyword,catagory,subscription_enabled,enabled,comment) values('" + serviceshortcode + "','" + msisdn + "','" + keyword + "','OPEN','" + 1 + "','" + 1 + "','Subscribed from API')";
             con = new SqlConnection(connetionString);
@@ -222,9 +222,9 @@ namespace WebService2
                 updateValue = 1;
                 reasons = "activated from API";
             }
-                
+
             //connetionString = "Data Source=SHARIF-PC;Initial Catalog=airtel;User ID=sa;Password=btraccl12345678";
-            connetionString = "Data Source=192.168.119.10;Initial Catalog=info;User ID=appresource;Password=miaki@1_8";
+            connetionString = "Data Source=x.x.x.x;Initial Catalog=info;User ID=appresource;Password=xxxx";
             // update_time,+ DateTime.Now.ToString("YY-MM-DD HH:mm:ss")
             qry = "update tbl_subscription_general_user set subscription_enabled='" + updateValue + "',comment='" + reasons + "', update_time='" + DateTime.Now + "',catagory='OPEN' where telco_inMobileNo='" + msisdn + "' and telco_inShortCode='" + serviceshortcode + "' and msg_keyword='" + keyword + "'";
             con = new SqlConnection(connetionString);
@@ -259,7 +259,7 @@ namespace WebService2
         [WebMethod]
         public string searchService(string msisdn, string serviceshortcode)
         {
-            
+
             string mobilecheck = checkMSISDN(msisdn);
             string returnvalue = "";
             if (mobilecheck == "F")
@@ -292,7 +292,7 @@ namespace WebService2
                    returnvalue = InsertToRecord(msisdn, serviceshortcode, keyword, "a");
                else returnvalue = whatvalue;
            }
-           return returnvalue; 
+           return returnvalue;
         }
 
        [WebMethod]
@@ -325,6 +325,6 @@ namespace WebService2
         //public double CelsiusToFahrenheit(double Celsius)
         //{
         //    return ((Celsius * 9) / 5) + 32;
-        //}  
+        //}
     }
 }
