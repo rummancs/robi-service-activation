@@ -1,6 +1,6 @@
 # robi-service-activation
 
-
+this api is ussed to subscribe or unsubscribe to a service groups. 
 
 ## Getting started
 
